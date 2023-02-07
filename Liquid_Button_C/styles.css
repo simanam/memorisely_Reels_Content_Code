@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: #fff;
+}
+.container {
+  background: #fff;
+  width: 22rem;
+  height: 40rem;
+  border: 2px solid black;
+  border-radius: 40px;
+  position: relative;
+  filter: contrast(20);
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+}
+
+.bigCircleMenu {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  background: black;
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  box-shadow: 0 0 30px 10px black;
+}
+.bigCircleMenu::before {
+  content: "+";
+  font-size: 8em;
+  color: #fff;
+  position: relative;
+  left: 2.6rem;
+  transition: 1.5s;
+}
+
+/* .container:hover .bigCircleMenu::before {
+  transform: rotate(45deg);
+} */
+.bigCircleMenu.active::before {
+  transform: rotate(45deg);
+}
+
+.smallCircleMenu {
+  width: 5rem;
+  height: 5rem;
+  background: black;
+  border-radius: 100%;
+  position: absolute;
+  left: 40%;
+  top: 75%;
+  z-index: -1;
+  transition: cubic-bezier(0.82, 0.1, 0.24, 0.99) 1.5s;
+  box-shadow: 0 0 30px 10px black;
+}
+
+/* .container:hover .smallCircle1 {
+  transform: translateY(-150px);
+}
+
+.container:hover .smallCircle2 {
+  transform: translateY(-300px);
+} */
+
+.bigCircleMenu.active ~ .smallCircle1 {
+  transform: translateY(-150px);
+}
+.bigCircleMenu.active ~ .smallCircle2 {
+  transform: translateY(-300px);
+}
+
+.pen {
+  position: absolute;
+  color: #fff;
+  font-size: 24px;
+  left: 1.5rem;
+  bottom: 1.8rem;
+}
